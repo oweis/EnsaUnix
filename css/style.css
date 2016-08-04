@@ -1,0 +1,215 @@
+	body
+	{
+		background: #202020 url(images/img01.jpg) repeat;
+		margin:0px;
+	}
+
+	body,input,textarea,select
+	{
+		font-family: sans-serif;
+		font-weight: 300;
+		font-size: 11pt;
+		line-height: 1.75em;
+	}
+
+	
+
+	header
+	{
+		margin-bottom: 2em;
+		line-height: 1.7em;
+	}
+	
+		
+		
+	footer
+	{
+		margin-top: 1em;
+	}
+
+	#header
+	{
+		position: relative;
+		background: #FFF;
+	}
+
+		#header .conan
+		{
+			position: relative;
+			padding: 4em 0em;
+		}
+
+
+	#logo
+	{
+		position: absolute;
+		left: 0em;
+		top: 3em;
+	}
+	
+		#logo h1
+		{
+		}
+	
+		#logo a
+		{
+			display: block;
+			text-decoration: none;
+			font-size: 2.8em;
+			font-weight: 600;
+		}
+
+
+	#nav
+	{
+		position: absolute;
+		right: 0em;
+		top: 2.2em;
+	}
+
+		#nav > ul > li
+		{
+			float: left;
+		}
+		
+
+			#nav > ul > li > a,
+			#nav > ul > li > span
+			{
+				display: block;
+				margin-left: 0.7em;
+				padding: 0.80em 1.2em;
+				letter-spacing: 0.06em;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 1em;
+				outline: 0;
+				color: #333;
+			}
+
+			#nav li.active a
+			{
+				background: orange;
+				border-radius: 5px;
+				color: #FFF;
+			}
+
+
+	body,input,textarea,select
+	{
+		font-size: 11pt;
+	}
+
+
+	#couverture
+	{
+		padding: 6em 0em;
+	}
+
+	.acceuil #couverture
+	{
+		padding: 12em 0em;
+	}
+	
+
+	#page
+	{
+		padding: 2em 0em 6em 0em;
+	}
+	
+	.acceuil #page
+	{
+		padding: 6em 0em;
+	}
+
+	#menu
+	{
+		margin-top: 3em;
+		padding-top: 2em;
+		border-top: none;
+	}
+	
+	.acceuil #menu
+	{
+		margin-top: 6em;
+		padding-top: 6em;
+	}
+
+
+	
+	#footer
+	{
+		padding: 0em 0em 4em 0em;
+	}
+
+	
+	
+
+
+			
+	code{background-color:#ffffff;}
+
+	#couverture{background: url(../images/home.jpg) no-repeat center;}
+	#couvertureno1{background: url(../images/apache.png) no-repeat center;}
+	#couvertureno2{background: url(../images/mysql.jpg) no-repeat center;}
+	#couvertureno3{background: url(../images/dns.png) no-repeat center;}
+	#couvertureno4{background: url(../images/samba.png) no-repeat center;}
+	#couvertureno5{background: url(../images/nfs.jpg) no-repeat center;}
+	#couvertureno6{background: url(../images/ssh.gif) no-repeat center;}
+	#couvertureno7{background: url(../images/netfilter.jpg) no-repeat center;}
+	#couvertureno8{background: url(../images/webdav.png) no-repeat center;}
+	#couvertureno9{background: url(../images/ldap.png) no-repeat center;}
+	#couvertureno10{background: url(../images/sendmail.jpg) no-repeat center;}
+
+	
+	#couverture,#couvertureno1,#couvertureno2,#couvertureno3,#couvertureno4,#couvertureno5,#couvertureno6,#couvertureno7,#couvertureno8,#couvertureno9,#couvertureno10
+	{
+		position: relative;
+		padding: 12em 0em;
+		background-size: cover;
+		}
+
+
+
+
+
+	#page
+	{
+		position: relative;
+		background: #fff;
+	}
+
+	#menu
+	{
+		border-top: 1px solid;
+		border-color: rgba(0,0,0,.2);
+	}
+	
+
+
+#mr
+{
+text-align:right;
+font-size:22px;}
+#ABO
+{
+font-size:18px;}
+	
+
+	
+	
+	#copyright
+	{
+		position: relative;
+		padding: 3em 0em;
+		border-top: 1px solid #303030;
+		
+		text-align: center;
+		color: rgba(255,255,255,.4);
+	}
+
+.server
+{
+border:1px solid black;
+padding:5px;
+}

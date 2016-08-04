@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li class="active"><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">SAMBA</a></li>
+							 <li><a href="nfs.html">NFS</a></li>			
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno3">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li class="active"><a href="dns.html">Page1</a></li>
+							<li><a href="dns2.html">Page2</a></li>
+                             <li><a href="dns3.html">Page3</a></li>
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>DNS</h1>
+
+				<div class="server">	<p>
+								<strong>           le Domain Name System (ou DNS, système de noms de domaine) est 
+								un service permettant de traduire un nom domaine en informations de 
+								plusieurs types qui y sont associées, notamment en adresse IP de la machine portant ce nom</strong></div><br>
+		<h2>	Instalation :</h2> 
+		Pour installer DNS on tape la commande : apt-get install bind9<br>
+<img src="dns/dns0.png"  align="center"><br><br>
+<h2>Configuration</h2>
+<br>
+<img src="dns/dns1.png"  align="center"><br><br>
+On change les paramètres réseau de la machine virtuelle (accés par pont)  et on teste la connexion entre Windows et lubuntu avec ping <br>
+<img src="dns/dns2.png"  align="center"><br><br>
+Avec la commande ifconfig on s’assure que l’adresse IP s’est changé en 192.168.8.101 ( de notre système window c’est 192.168.8.100) <br>
+<img src="dns/dns3.png"  align="center"><br><br>
+On ouvre le fichier /etc/network/interfaces avec la commande : nano  /etc/network/interfaces<br>
+<img src="dns/dns4.png"  align="center"><br><br>
+Pour consulter les fichiers dans le répertoire /etc/bind : Cd /etc/bind;ls<br>
+<img src="dns/dns5.png"  align="center"><br><br>
+On edite le fichier named.conf.options comme ci-dessous : nano named.conf.options<br>
+<img src="dns/dns6.png"  align="center"><br><br>
+Comme 2éme étape ,on édite  le fichier named.conf.local<br>
+On crée une zone pour ensaunix.com  <br>
+On fait la même chose pour l’adresse inverse ‘’8.168.192.in-addr.arpa ‘’<br>
+    nano named.conf.local<br>
+		<img src="dns/dns7.png"  align="center"><br><br>
+		On copie et on crée simultanément le fichier db.ensaunix.com dans db.empty<br>
+		<img src="dns/dns8.png"  align="center"><br><br>
+		On ouvre le fichier  nano db.ensaunix.com et on l’édite comme suit :<br>
+		<img src="dns/dns9.png"  align="center"><br><br>
+		On relance le service bind9 : Service bind9 reload<br>
+		<img src="dns/dnsok.png"  align="center"><br><br>
+		
+		Pour vérifier que tout va bien on tape : Tail /var/log/syslog<br>
+			<img src="dns/dnsok2.png"  align="center"><br><br>
+		
+		On aura toujurs des problémes c’est pour cette raison on modifié les fichiers resolv.conf et dhclient.conf<br>
+  nano resolv.conf<br>
+ <img src="dns/dns10.png"  align="center"><br><br>
+nano dhclient.conf<br>
+ <img src="dns/dns11.png"  align="center"><br><br>
+On verifie que DNS marche bien :<br>
+  <img src="dns/dns12.png"  align="center"><br><br>
+
+    <img src="dns/dns13.png"  align="center"><br><br>
+
+
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

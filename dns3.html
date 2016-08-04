@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li class="active"><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>			
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno3">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li><a href="dns.html">Page1</a></li>
+							<li><a href="dns2.html">Page2</a></li>
+                             <li class="active"><a href="dns3.html">Page3</a></li>
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>Script Shell : DNS</h1>
+
+				
+			
+					<p><code>
+#!/bin/sh<br>
+apt-get update <br>
+apt-get install bind9<br>
+echo "auto lo">/etc/network/interfaces<br>
+echo "iface lo inet loopback">>/etc/network/interfaces<br>
+echo "auto eth0">>/etc/network/interfaces<br>
+echo "iface eth0 inet static">>/etc/network/interfaces<br>
+ifconfig>ifconfig.txt<br>
+answer=head -2 ifconfig.txt|grep inet|awk '{print $2}'|awk -F ":" '{print $2}'<br>
+echo "address $answer">>/etc/network/interfaces<br>
+echo "netmask 255.255.255.0">>/etc/network/interfaces<br>
+echo "dns-nameservers $answer">>/etc/network/interfaces<br>
+echo "donnez ton nom de domaine"<br>
+read dom<br>
+echo "zone "$dom"{">>/etc/bind/named.conf.local<br>
+echo "type master;">>/etc/bind/named.conf.local<br>
+echo "file "/etc/bind/db.$dom";">>/etc/bind/named.conf.local<br>
+echo "};">>/etc/bind/named.conf.local<br>
+cp db.empty db.$dom<br>
+echo "domain 192.168.8.101">/etc/bind/resolv.conf<br>
+echo "search enaunix.com">>/etc/bind/resolv.conf<br>
+head -6 /etc/bind/db.$dom>EnsaUnixunix.txt<br>
+echo "@		IN 		SOA 	db.$dom. root.localhost.(">>EnsaUnixunix.txt<br>
+tail -7 /etc/bind/db.$dom>>EnsaUnixunix.txt<br>
+echo "@		IN		A	$answer">>EnsaUnixunix.txt<br>
+rm /etc/bind/db.$dom<br>
+mv EnsaUnixunix.txt /etc/bind/db.$dom<br>
+service bind9 reload <br>
+						</code></p>
+		
+		
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

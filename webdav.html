@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li class="active"><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno8">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li class="active"><a href="webdav.html">Page1</a></li>
+							<li><a href="webdav2.html">Page2</a></li>
+                             <li><a href="webdav3.html">Page3</a></li>
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>WebDav</h1>
+
+			<div class="server">	
+								<strong>           WebDAV, en entier : Web-based Distributed Authoring and Versioning, est un protocole déjà ancien (1996) et curieusement peu connu. Il permet pourtant une chose essentielle : écrire sur le Web, au lieu de seulement surfer (c'est-à-dire seulement lire).
+C'est un protocole ouvert, le W3C (organisme qui "normalise le web") en a confié le développement à l'IETF qui avait déjà normalisé HTTP.
+Pour résumer, WebDAV est une extension du http.</strong></div><br>
+<h2>	Instalation :</h2> 
+On va cree le dossier WebDAV <br>
+mkdir /var/www/webdav<br>
+Pour allouer apache :<br>
+chown -R www-data:www-data /var/www/<br>
+Apres on autorise l'utilisation de  webdav <br>
+a2enmod dav <br>
+a2enmod dav_fs<br>
+Ouvrir le fichier de configuration<br>
+nano /etc/apache2/sites-available/000-default.conf<br>
+<img src="webdav/webdav2.png"  align="center"><br><br>
+Le contenu de 000-default.conf avant la modification: <br>
+<img src="webdav/webdav3-1.png">
+<img src="webdav/webdav3-2.png"><br><br>
+Ajoute a la premier ligne "the DAVLockDB directive configuration"<br>
+	<em>DavLockDB /var/www/DavLock</em><br>
+Inserer les donnes ci-dessous(sans les "") : avant  la balise  "<"/VirtualHost">" <br>
+<code>
+<em>Alias /webdav /var/www/webdav<br>
+
+"<"Directory /var/www/webdav><br>
+    DAV On<br>
+"<"/Directory></em></code><br>
+<img src="webdav/webdav4-1.png"  align="center">
+<img src="webdav/webdav4-2.png"  align="center"><br>
+Comme derniere etape il reste que restart ton apache server :  service apache2 restart
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

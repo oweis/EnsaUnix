@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li><a href="dns.html">DNS</a></li>
+							 <li class="active"><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno4">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li class="active"><a href="samba.html">Page1</a></li>
+							<li><a href="samba2.html">Page2</a></li>
+                             <li><a href="samba3.html">Page3</a></li>
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>Samba</h1>
+
+				<div class="server">	<p>
+								<strong>           Samba est un logiciel d’interopérabilité  qui permet à des ordinateurs UNIX 
+								de mettre à disposition des imprimantes et des fichiers dans des réseaux Windows, en mettant en œuvre le 
+								protocole  SMB/CIFS de Microsoft Windows Samba donne la possibilité aux ordinateurs Windows d'accéder aux 
+								imprimantes et
+								aux fichiers des ordinateurs UNIX en permettant aux serveurs Unix de se substituer à des serveurs Windows.</strong></div><br>
+				<br> <br>
+				<h2>	Instalation :</h2> 
+
+					<p>Le partage de dossiers et d'imprimantes dans un réseau local est une fonctionnalité des systèmes d'exploitation modernes permettant d'accéder à des ressources d'un ordinateur (dossiers de données et imprimantes) à partir d'un autre ordinateur situé dans un même réseau local (réseau domestique ou d'entreprise).
+Le logiciel Samba est un outil permettant de partager des dossiers et des imprimantes à travers un réseau local.
+Pour partager de manière simple des ressources entre plusieurs ordinateurs, l'utilisation de Samba est conseillée.<br>
+Instalation<br>
+avant de commencer on doit changer la mode d'acces reseau (seulement sur VirtualBox):<br>
+<img src="samba/simba0.png"  align="center"><br><br>
+il est preferable de lancer apt-get update avant (aide a minimiser les erreurs)<br>
+<img src="samba/simba1.png"  align="center"><br><br>
+on commence maintenant : apt-get install samba<br>
+<img src="samba/simba2.png"  align="center"><br><br>
+donner les droits d'acces d'abord, pour enregistre les modifications apres : chmod 777 smb.conf (755 enough) <br>
+on va cree le dossier de partage mnt : 
+<ul>
+								<li> ouvrir smb.conf : nano smb.conf </li>
+	<li>inserer les donnes ci-dessous : (faire les modifications necessaires selon votre besoin)</li>
+						
+							</ul>  
+<em>[share]<br>
+	comment = Ubuntu File Server Share <br>
+	path = /srv/samba/share <br>
+	browsable = yes<br>
+	guest ok = yes<br>
+	read only = no<br>
+	create mask = 0000<br></em>
+cree le dossier mnt  mkdir -p /srv/samba/share <br>
+
+<img src="samba/simba3.png"  align="center"><br><br>
+pour changer le propriétaire de notre dossier : chown nobody.nogroup /srv/samba/share<br>
+modifier le fichier /etc/init/nmbd.conf<br>
+et ajouter des # sur les ligne qui contient : 				
+			<ul>
+								<li> - (NsMBD_Disabled=testparm -s ....</li>
+								<li> - ["x$NMBD_Disabled"=xYeS....] </li>
+								
+							</ul>  
+
+<img src="samba/simba4.png"  align="center"><br><br>
+comme derniere etape il reste que tape sur ton terminal : RESTART samba mnt <br>
+<img src="samba/simba5.png"  align="center"><br><br>
+c'est fini ! voulez-vous voir un petit test ?! aller sur page2.
+
+						</p>
+		
+		
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

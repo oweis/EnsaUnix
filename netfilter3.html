@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li class="active"><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno7">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							
+							<li><a href="netfilter.html">Page1</a></li>
+							<li><a href="netfilter2.html">Page2</a></li>
+                             <li class="active"><a href="netfilter3.html">Page3</a></li>	
+							 </ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>NetFilter</h1>
+
+				<br> <br>
+					<p>
+						
+  <h5>Réalisé par : BeAvEr.(on a pas arrive a le faire)</h5><br><br><br>
+  #!/bin/bash<br>
+## Script iptables .<br>
+ 
+## Règles iptables.<br>
+ 
+## On flush iptables.<br>
+ 
+iptables -F<br>
+ 
+## On supprime toutes les chaînes utilisateurs.<br>
+ 
+iptables -X<br>
+ 
+## On drop tout le trafic entrant.<br>
+ 
+iptables -P INPUT DROP<br>
+ 
+## On drop tout le trafic sortant.<br>
+ 
+iptables -P OUTPUT DROP<br>
+ 
+## On drop le forward.<br>
+ 
+iptables -P FORWARD DROP<br>
+ 
+## On drop les scans XMAS et NULL.<br>
+ 
+iptables -A INPUT -p tcp --tcp-flags FIN,URG,PSH FIN,URG,PSH -j DROP<br>
+ 
+iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP<br>
+ 
+iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP<br>
+ 
+iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP<br>
+ 
+## Dropper silencieusement tous les paquets broadcastés.<br>
+ 
+iptables -A INPUT -m pkttype --pkt-type broadcast -j DROP<br>
+ 
+## Permettre à une connexion ouverte de recevoir du trafic en entrée.<br>
+ 
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br>
+ 
+## Permettre à une connexion ouverte de recevoir du trafic en sortie.<br>
+ 
+iptables -A OUTPUT -m state ! --state INVALID -j ACCEPT<br>
+ 
+## On accepte la boucle locale en entrée.<br>
+ 
+iptables -I INPUT -i lo -j ACCEPT<br>
+ 
+## On log les paquets en entrée.<br>
+ 
+iptables -A INPUT -j LOG<br>
+ 
+## On log les paquets forward.<br>
+ 
+iptables -A FORWARD -j LOG <br>
+ 
+exit 0<br>
+						</p>
+		
+		
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

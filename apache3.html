@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li class="active"><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>		
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno1">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li><a href="apache.html">Page1</a></li>
+							<li><a href="apache2.html">Page2</a></li>
+                             <li class="active"><a href="apache3.html">Page3</a></li>
+						</ul>
+						
+					</nav>
+			</div>
+			
+		</div>
+		<div id="page">
+
+			<?php
+if(isset($_POST['exec']))
+{
+  if(isset($_GET['action']) && $_GET['action'] == 'yes')
+  {
+    $cmd = exec(escapeshellcmd('mv /home/css/Match/cstrike/*.dem /home/www/CSS/'));
+     
+    if($cmd)
+    {
+       echo 'Succes';
+    }
+    else
+    {
+       echo 'il ya un erreur';
+    }
+  }
+}
+ 
+echo '<form method="post" action="apache.php?action=yes">
+<input class="btnLogin" type="submit" name="exec" value="Executer" >
+</form>';?>
+			
+			<div id="3u" class="conan">
+				
+
+						<h1>Script Shell : Apache</h1>
+
+				
+				<br> <br>
+				<code>#!/bin/sh<br>
+				apt-get install apache2<br>
+				/etc/init.d/apache2 restart<br>
+				chmod 755 /var/www/html/index.html<br>
+				echo "Entrez Path de fichier qui contient ton page web svp !"<br>
+				read answer<br> 
+				cp $answer /var/www/html<br></code>
+		        echo "allez sur ton navigateur et tapez localhost\'nom-de-ton-fichier'"
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>

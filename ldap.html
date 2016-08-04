@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EnsaUnix</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	     	<link rel="stylesheet" href="css/EnsaUnix.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			
+	
+		</head>
+	<body class="acceuil">
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							<li ><a href="index.html">Acceuil</a></li>
+						
+							<li><a href="apache.html">Apache</a></li>
+							<li><a href="mysql.html">MySQL</a></li>
+                             <li><a href="dns.html">DNS</a></li>
+							 <li><a href="samba.html">Samba</a></li>
+							 <li><a href="nfs.html">NFS</a></li>
+							 <li><a href="ssh.html">SSH</a></li>
+							 <li><a href="netfilter.html">Netfilter</a></li>
+							 <li><a href="webdav.html">WebDav</a></li>
+							 <li class="active"><a href="ldap.html">LDAP</a></li>
+							  <li><a href="sendmail.html">Sendmail</a></li>
+
+                           
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="couvertureno9">
+			<div class="conan">
+			</div>
+		</div>
+		<div id="header">
+			<div class="conan">
+				<div id="logo">
+						
+					</div>
+							<nav id="nav">
+						<ul>
+							
+						
+							<li class="active"><a href="ldap.html">Page1</a></li>
+							<li><a href="ldap2.html">Page2</a></li>
+                             <li><a href="ldap3.html">Page3</a></li>
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<div id="page">
+
+			
+			
+			<div id="3u" class="conan">
+				
+						<h1>LDAP</h1>
+						<div class="server">	<p>
+								<strong>           LDAP signifie Lightweight Directory Access Protocol,
+								un protocole d’annuaire sur TCP/IP utilisant les mˆemes concepts que DNS2 ,
+								le service de nommage utilis´e sur l’Internet
+								pour faire correspondre un nom explicite (comme www-id. imag.fr)
+								`a une adresse IP (129.88.69.11).</strong></div><br>
+
+				<br> <br><h2>	Instalation :</h2> 
+
+					<p>Il est preferable de lancer apt-get update avant (aide a minimiser les erreurs)<br> 
+					<br> <img src="ldap/LDAP1.png"  align="center">	<br> <br>
+					Puis on installe les paquets slapd et ldap-utils :<br> apt-get install slapd <br>apt-get install ldap-utils<br>
+				<p>	Pendant l'installation, un mot de passe est demandé pour le "rootDN".
+					Cet utilisateur dispose de tous les droits sur l'arbre de données,
+					et uniquement sur l'arbre de données,
+					puisqu'il n'existe pas dans l'arbre de configuration.</p>
+					<br> <img src="ldap/LDAP2.png"  align="center">	<br> <br>
+					<br> <img src="ldap/LDAP3.png"  align="center">	<br> <br>
+					On saisit dans le terminal la commande suivante:<br>
+					dpkg-reconfigure slapd<br>
+					<br> <img src="ldap/LDAP4.png"  align="center">	<br> <br>
+					Choisi No :
+					<br> <img src="ldap/LDAPConf1.png"  align="center">	<br> <br>
+					Donne ton nom de domaine (on va utilise test.com)
+					<br> <img src="ldap/LDAPConf2.png"  align="center">	<br> <br>
+					<br> <img src="ldap/LDAPConf3.png"  align="center">	<br> <br>
+					Module de base de données ? HDB (recommandé)	<br>
+					<br> <img src="ldap/LDAPConf4.png"  align="center">	<br> <br>
+					No 	<br>
+					<br> <img src="ldap/LDAPConf5.png"  align="center">	<br> <br>
+					Supprimer l'ancien base de données ? Oui	<br>
+					<br> <img src="ldap/LDAPConf6.png"  align="center">	<br> <br>
+					LDAPv2 ? No	<br>
+					<br> <img src="ldap/LDAPConf7.png"  align="center">	<br> <br>
+				
+
+
+					Le bon fonctionnement du serveur peut être testé à l'aide de ces commandes:
+					<br>sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config dn
+					<br> <img src="ldap/LDAP5.png"  align="center">	<br> <br>
+					ldapsearch -x -LLL -H ldap:/// -b dc=test,dc=com dn
+					<br> <img src="ldap/LDAP6.png"  align="center">	<br> <br>
+					Si vous avez les memes resultats vous pouvez continue l'instalation.<br>
+					nano /etc/phpldapadmin/config.php
+					<br> <img src="ldap/LDAP7.png"  align="center">	<br> <br>
+					<p>Maintenant faire les modifications suivant :
+					<!-- Change the red value to the way you will be referencing your server, either through domain name or IP address.
+
+$servers->setValue('server','host','domain_nam_or_IP_address');For instance, if your DNS domain name entry was "imaginary.lalala.com", LDAP would need to see "dc=imaginary,dc=lalala,dc=com". Edit the following entry to reflect the name you selected (ours is "test.com" as you recall):
+
+$servers->setValue('server','base',array('dc=test,dc=com'));
+The next value to modify will use the same domain components that you just set up in the last entry. Add these after the "cn=admin" in the entry below:
+
+$servers->setValue('login','bind_id','cn=admin,dc=test,dc=com');
+Search for the following section about the "hidetemplatewarning" attribute. We want to uncomment this line and set the value to "true" to avoid some annoying warnings that are unimportant.
+
+$config->custom->appearance['hide_template_warning'] = true;/ --></p>
+					<br> <img src="ldap/LDAP8.png"  align="center">	<br> <br>
+					<br> <img src="ldap/LDAP9.png"  align="center">	<br> <br>
+					<br> <img src="ldap/LDAP10.png"  align="center">	<br> <br>
+
+					
+					
+						</p>
+		
+		
+			</div>
+			</div>
+
+				
+	
+
+	
+		<div id="copyright" class="conan">
+			Copyright 2015
+		</div>
+
+
+	</body>
+</html>
